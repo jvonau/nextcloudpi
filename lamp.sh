@@ -19,11 +19,14 @@
 # More at https://ownyourbits.com/2017/02/13/nextcloud-ready-raspberry-pi-image/
 #
 
+source /usr/local/etc/library.sh # refresh NCPCFG RELEASE PHPVER
+
 APTINSTALL="apt-get install -y --no-install-recommends"
 export DEBIAN_FRONTEND=noninteractive
 
 install()
 {
+  set -x # TODO
     apt-get update
     $APTINSTALL apt-utils cron curl
     $APTINSTALL apache2
